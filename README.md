@@ -1,3 +1,4 @@
+
 # Firmware Security Analysis
 
 ![Linux](https://img.shields.io/badge/Linux-Environment-black)
@@ -32,17 +33,65 @@ The objective is to identify security weaknesses within embedded firmware and un
 ## Key Findings
 
 - Identified a CPIO firmware archive.
-- Discovered hardcoded laboratory credentials.
+- Discovered hardcoded credentials within the test firmware.
 - Identified a Linux ELF binary.
-- Examined authentication logic and strcmp() comparisons.
+- Examined authentication logic and `strcmp()` comparisons.
 - Identified access-granted and access-denied execution paths.
+
+## Technical Write-up
+
+The complete technical analysis, including command outputs, 
+security findings, reverse engineering results, and security 
+recommendations, is available below.
+
+[View Full Firmware Security Analysis](analysis/firmware-analysis.md)
+
+## Analysis Preview
+
+### Firmware Identification
+
+Identifying the firmware file type and structure.
+
+![Firmware Identification](screenshots/firmware-identification.png)
+
+### Binwalk Analysis
+
+Examining the firmware image and identifying embedded components.
+
+![Binwalk Analysis](screenshots/binwalk-scan.png)
+
+### Firmware Extraction
+
+Extracting and inspecting the firmware contents.
+
+![Firmware Extraction](screenshots/firmware-extraction.png)
+
+### Static Binary Analysis
+
+Inspecting readable strings and embedded information within 
+the extracted binary.
+
+![Strings Analysis](screenshots/strings-analysis.png)
+
+### Reverse Engineering with Ghidra
+
+Examining decompiled code, function behavior, and 
+authentication logic.
+
+![Ghidra Analysis](screenshots/ghidra-decompiler.png)
 
 ## Repository Structure
 
     Firmware-Security-Analysis/
     ├── README.md
     ├── analysis/
+    │   └── firmware-analysis.md
     └── screenshots/
+        ├── firmware-identification.png
+        ├── binwalk-scan.png
+        ├── firmware-extraction.png
+        ├── strings-analysis.png
+        └── ghidra-decompiler.png
 
 ## Learning Outcomes
 
@@ -54,6 +103,6 @@ The objective is to identify security weaknesses within embedded firmware and un
 
 ## Disclaimer
 
-This project was conducted in a controlled academic lab
-environment for educational and cybersecurity research purposes.
-The firmware is a simulated laboratory sample.
+This project was conducted in a controlled environment 
+for cybersecurity research and educational purposes.
+The firmware is a simulated sample.
